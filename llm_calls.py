@@ -8,16 +8,19 @@ def classify_input(message):
             {
                 "role": "system",
                 "content": """
-                        Your task is to classify if the user message is related to buildings and architecture or not.
+                        Your task is to classify if the user message is related to an architectural project. Questions should be specific to the building in question and not generic.
                         Output only the classification string.
-                        If it is related, output "Related", if not, output "Refuse to answer".
+                        If it is related, output "Building-specific query", if not, output "Refuse to answer".
 
                         # Example #
-                        User message: "How do I bake cookies?"
+                        User message: "How do I climb a tree?"
                         Output: "Refuse to answer"
 
-                        User message: "What is the tallest skyscrapper in the world?"
-                        Output: "Related"
+                        User message: "How many brutalist buildings are there in the UK?"
+                        Output: "Refuse to answer"
+
+                        User message: "How many rooms are there in apartment 72?"
+                        Output: "Building-specific query"
                         """,
             },
             {
@@ -39,18 +42,13 @@ def generate_concept(message):
                 "role": "system",
                 "content": """
                         You are a visionary intern at a leading architecture firm.
-                        Your task is to craft a short, poetic, and highly imaginative concept for a building design.
-                        Weave the initial information naturally into your idea, letting it inspire creative associations and unexpected imagery.
-                        Your concept should feel bold, evocative, and memorable — like the opening lines of a story.
-                        Keep your response to a maximum of one paragraph.
-                        Avoid generic descriptions; instead, focus on mood, atmosphere, and emotional resonance.
+                        Your task is to suggest facade systems that fit in with the context of the location of the building. 
                         """,
             },
             {
                 "role": "user",
                 "content": f"""
-                        What is the concept for this building? 
-                        Initial information: {message}
+                        My building is located in {message}
                         """,
             },
         ],

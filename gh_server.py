@@ -10,7 +10,7 @@ def llm_call():
     data = request.get_json()
     input_string = data.get('input', '')
 
-    answer = classify_input(input_string)
+    answer = generate_concept(input_string)
 
     return jsonify({'response': answer})
 
