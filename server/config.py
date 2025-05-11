@@ -12,7 +12,7 @@ cloudflare_client = OpenAI(base_url = f"https://api.cloudflare.com/client/v4/acc
 
 
 # Embedding Models
-local_embedding_model = "nomic-ai/nomic-embed-text-v1.5-GGUF"
+local_embedding_model = "text-embedding-nomic-embed-text-v1.5"
 cloudflare_embedding_model = "@cf/baai/bge-base-en-v1.5"
 openai_embedding_model = "text-embedding-3-small"
 
@@ -28,7 +28,7 @@ gpt4o = [
 # Notice how this model is running locally. Uses local server with LMStudio
 llama3 = [
         {
-            "model": "lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF", #change this to point to a new model
+            "model": "llama-3.1-tulu-3-8b", #change this to point to a new model
             'api_key': 'any string here is fine',
             'api_type': 'openai',
             'base_url': "http://127.0.0.1:1234",
